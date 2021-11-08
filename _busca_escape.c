@@ -12,7 +12,7 @@ int busca_escape(const char *format, va_list args)
 	char *cadenas;
 
 	lon = strlen(format) + 1;
-	for (i = 0; i < lon; i++)
+	for (i = 0; i < lon - 1; i++)
 	{
 		if (format[i] == '%')
 		{
