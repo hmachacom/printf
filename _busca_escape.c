@@ -26,7 +26,7 @@ int busca_escape(const char *format, va_list args)
 				cadenas = va_arg(args, char *);
 				lonc = strlen(cadenas) + 1;
 				cuenta = cuenta + (lonc - 1);/* sumando los caracteres de la cadena*/
-				write(1, cadenas, lonc);
+				write(1, cadenas, lonc - 1);
 				i++;
 				break;
 			case 'c':
