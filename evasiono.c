@@ -9,7 +9,7 @@ int eva_siono(const char *format)
 {
 	int lon, i;
 
-	lon = strlen(format);
+	lon = strlen(format) + 1;
 	for (i = 0; i < lon; i++)
 	{
 		if (format[i] == '%')

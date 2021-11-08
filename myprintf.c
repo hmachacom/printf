@@ -13,7 +13,7 @@ int _printf(const char *format, ...)	/* prototipo de la funcion principal*/
 	va_list arg;	/* declaracion de lista arg */
 
 	va_start(arg, format); /* inicializacion de la lista arg*/
-	lon = strlen(format);/* calcula la longitud de format*/
+	lon = strlen(format) + 1;/* calcula la longitud de format*/
 	siono = eva_siono(format);/* variable que recibe v(1) o f(0)*/
 	if (siono)
 	{
