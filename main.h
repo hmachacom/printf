@@ -8,7 +8,7 @@
 #include <stdlib.h>
 
 int _printf(const char *format, ...);
-int eva_siono (const char *format);
+int eva_siono(const char *format);
 int busca_escape(const char *format, va_list args);
 int _putchar(char c);
 int cuenta_format(const char *format);
