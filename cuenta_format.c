@@ -3,7 +3,7 @@
 /**
  * cuenta_format - incrementa cada vez que encuentra un %
  * @format: cadena principal
- * Return: retorna la cantidad de % que se encuentra
+ * Return: retorna la cantidad de % que se encuentra.
  */
 int cuenta_format(const char *format)
 {
