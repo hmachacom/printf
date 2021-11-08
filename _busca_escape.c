@@ -24,6 +24,8 @@ int busca_escape(const char *format, va_list args)
 				break;
 			case 's':
 				cadenas = va_arg(args, char *);
+				if (!cadenas)
+					cadenas = "(null)";
 				lonc = strlen(cadenas) + 1;
 				cuenta = cuenta + (lonc - 1);/* sumando los caracteres de la cadena*/
 				write(1, cadenas, lonc - 1);
