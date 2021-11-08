@@ -20,7 +20,7 @@ int _printf(const char *format, ...)	/* prototipo de la funcion principal*/
 		cuentag = busca_escape(format, arg);/*llama a la funcion busca_escape*/
 	}
 	else
-		write(1, format, lon);/*se imprime cadena total si no hay %*/
+		write(1, format, lon - 1);/*se imprime cadena total si no hay %*/
 	cuentag += (lon - 1) - cuenta_format(format);/*suma cadena principal -'%'*/
 	va_end(arg);
 	return (cuentag);
