@@ -22,5 +22,6 @@ int _printf(const char *format, ...)	/* prototipo de la funcion principal*/
 	else
 		write(1, format, lon);/*se imprime cadena total si no hay %*/
 	cuentag += (lon - 1) - cuenta_format(format);/*suma cadena principal -'%'*/
+	va_end(arg);
 	return (cuentag);
 }
