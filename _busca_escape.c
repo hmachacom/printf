@@ -37,7 +37,7 @@ int busca_escape(const char *format, va_list args)
 				if (format[i + 1])
 					_putchar(format[i]);
 				else
-				return (-1);
+					return (-1);
 			}
 		}
 		else

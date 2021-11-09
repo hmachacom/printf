@@ -35,11 +35,17 @@ int evaluate_char(int _char)
  */
 int evaluate_intd(int _int)
 {
-	int n, i, inter, div = 1, true_false = 0;
+	int n, i, inter, div = 1, true_false = 0, true_false2 = 0;
+	int long divlar = 1;
 	int *arrayn;
 
 	if (_int < 0)
 	{
+		if (_int == INT_MIN)
+		{
+			_int = _int + 1;
+			true_false2 = 1;
+		}
 		_int = _int * -1;
 		true_false = 1;
 	}
@@ -49,15 +55,33 @@ int evaluate_intd(int _int)
 		return (-1);
 	if (true_false == 1)
 		_putchar('-');
-	for (i = 0; i < n; i++)
-	div = div * 10;
-	for (i = 0; i < n; i++)
+	if (n < 10)
 	{
-		inter = _int / (div / 10);
-		arrayn[i] = inter;
-		_int = _int % (div / 10);
-		div = div / 10;
-		_putchar('0' + arrayn[i]);
+		for (i = 0; i < n; i++)
+			div = div * 10;
+		for (i = 0; i < n; i++)
+		{
+			inter = _int / (div / 10);
+			arrayn[i] = inter;
+			_int = _int % (div / 10);
+			div = div / 10;
+			_putchar('0' + arrayn[i]);
+		}
+	}
+	else
+	{
+		for (i = 0; i < n; i++)
+			divlar = divlar * 10;
+		for (i = 0; i < n; i++)
+		{
+			inter = _int / (divlar / 10);
+			arrayn[i] = inter;
+			_int = _int % (divlar / 10);
+			divlar = divlar / 10;
+			if (i == n - 1 && true_false2 == 1)
+				arrayn[i] = arrayn[i] + 1;
+			_putchar('0' + arrayn[i]);
+		}
 	}
 	return (1);
 }
