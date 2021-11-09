@@ -17,7 +17,8 @@ int cuenta_format(const char *format)
 			i++;
 			cuentafor++;
 		}
-		else if (format[i] == '%' && (format[i + 1] == 's' || format[i + 1] == 'c'))
+		else if (format[i] == '%' && (format[i + 1] == 's' || format[i + 1] == 'c' ||
+									  format[i + 1] == 'd' || format[i + 1] == 'i'))
 		{
 			cuentafor += 2;
 		}

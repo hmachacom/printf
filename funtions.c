@@ -35,7 +35,7 @@ int evaluate_char(int _char)
  */
 int evaluate_intd(int _int)
 {
-	int n, true_false = 0, true_false2 = 0, ret = 0;
+	int n = 0, true_false = 0, true_false2 = 0, ret = 0;
 
 	if (_int < 0)
 	{
@@ -50,7 +50,7 @@ int evaluate_intd(int _int)
 	n = laps(_int);
 	if (true_false == 1)
 	{
-		ret--;
+		ret++;
 		_putchar('-');
 	}
 	case_i_d(n, _int, true_false2);
