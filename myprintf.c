@@ -20,6 +20,8 @@ int _printf(const char *format, ...)	/* prototipo de la funcion principal*/
 	if (siono)
 	{
 		cuentag = busca_escape(format, arg);/*llama a la funcion busca_escape*/
+		if (cuentag == -1)
+			return (-1);
 	}
 	else
 		write(1, format, lon - 1);/*se imprime cadena total si no hay %*/

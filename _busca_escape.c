@@ -40,7 +40,8 @@ int busca_escape(const char *format, va_list args)
 			default:
 				if (format[i + 1])
 					_putchar(format[i]);
-				continue;
+				else
+				return (-1);
 			}
 		}
 		else
