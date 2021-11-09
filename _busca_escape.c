@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * busca_escape - busca la condicion del formato, la evalua e imprime.
- * @format: cadena principal
- * @args: lista de argumentos recibidos
- * Return: retorna la longitud de os argumentos
+ * busca_escape - look for the condition of the format.
+ * @format: main chain
+ * @args: list of received arguments
+ * Return: returns the length of the arguments
  */
 int busca_escape(const char *format, va_list args)
 {
@@ -27,7 +27,7 @@ int busca_escape(const char *format, va_list args)
 				if (!cadenas)
 					cadenas = "(null)";
 				lonc = strlen(cadenas) + 1;
-				cuenta = cuenta + (lonc - 1);/* sumando los caracteres de la cadena*/
+				cuenta = cuenta + (lonc - 1);
 				write(1, cadenas, lonc - 1);
 				i++;
 				break;

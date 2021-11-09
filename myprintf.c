@@ -1,31 +1,31 @@
 #include "main.h"
 
 /**
- * _printf - imprime parametros predefinidos
- * @format: cadena principal
- * Return: retornamos la longitud total de los parametros recibidos
+ * _printf - print predefined parameters.
+ * @format: main chain.
+ * Return: we return the total length of the received parameters.
  */
 
-int _printf(const char *format, ...)	/* prototipo de la funcion principal*/
+int _printf(const char *format, ...)
 {
-	int lon, cuentag = 0; /* cuentag - suma la longitud total*/
+	int lon, cuentag = 0;
 	int siono;
-	va_list arg;	/* declaracion de lista arg */
+	va_list arg;
 
 	if (format == NULL)
 		return (-1);
-	va_start(arg, format); /* inicializacion de la lista arg*/
-	lon = strlen(format) + 1;/* calcula la longitud de format*/
-	siono = eva_siono(format);/* variable que recibe v(1) o f(0)*/
+	va_start(arg, format);
+	lon = strlen(format) + 1;
+	siono = eva_siono(format);
 	if (siono)
 	{
-		cuentag = busca_escape(format, arg);/*llama a la funcion busca_escape*/
+		cuentag = busca_escape(format, arg);
 		if (cuentag == -1)
 			return (-1);
 	}
 	else
-		write(1, format, lon - 1);/*se imprime cadena total si no hay %*/
-	cuentag += (lon - 1) - cuenta_format(format);/*suma cadena principal -'%'*/
+		write(1, format, lon - 1);
+	cuentag += (lon - 1) - cuenta_format(format);
 	va_end(arg);
 	return (cuentag);
 }

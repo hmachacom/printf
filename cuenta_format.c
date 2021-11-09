@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * cuenta_format - incrementa cada vez que encuentra un %
- * @format: cadena principal
- * Return: retorna la cantidad de % que se encuentra.
+ * cuenta_format - increases every time it finds a %.
+ * @format: main chain
+ * Return: returns the amount of % found.
  */
 int cuenta_format(const char *format)
 {
