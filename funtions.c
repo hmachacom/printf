@@ -35,7 +35,7 @@ int evaluate_char(int _char)
  */
 int evaluate_intd(int _int)
 {
-	int n, i, inter, div = 1, true_false = 0, true_false2 = 0;
+	int n, i, inter, div = 1, true_false = 0, true_false2 = 0, ret = 0;
 	int long divlar = 1;
 	int *arrayn;
 
@@ -54,7 +54,11 @@ int evaluate_intd(int _int)
 	if (arrayn == NULL)
 		return (-1);
 	if (true_false == 1)
+	{
+		ret--;
 		_putchar('-');
+	}
+
 	if (n < 10)
 	{
 		for (i = 0; i < n; i++)
@@ -83,7 +87,7 @@ int evaluate_intd(int _int)
 			_putchar('0' + arrayn[i]);
 		}
 	}
-	return (1);
+	return (n + ret);
 }
 /**
  * laps - count digits of intger
@@ -97,3 +101,8 @@ int laps(int _int)
 	else
 		return (1 + laps(_int / 10));
 }
+/**
+ * laps - count digits of intger
+ * @_int: integer to evaluate
+ * Return: returns laps of the integer
+ */
