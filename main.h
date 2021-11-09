@@ -17,5 +17,6 @@ int evaluate_str(char *str);
 int evaluate_char(int _char);
 int evaluate_intd(int _int);
 int laps(int _int);
+void case_i_d(int laps_, int _int, int true_false2);
 
 #endif /* MAIN_H */

@@ -35,9 +35,7 @@ int evaluate_char(int _char)
  */
 int evaluate_intd(int _int)
 {
-	int n, i, inter, div = 1, true_false = 0, true_false2 = 0, ret = 0;
-	int long divlar = 1;
-	int *arrayn;
+	int n, true_false = 0, true_false2 = 0, ret = 0;
 
 	if (_int < 0)
 	{
@@ -50,43 +48,12 @@ int evaluate_intd(int _int)
 		true_false = 1;
 	}
 	n = laps(_int);
-	arrayn = malloc(sizeof(int) * n);
-	if (arrayn == NULL)
-		return (-1);
 	if (true_false == 1)
 	{
 		ret--;
 		_putchar('-');
 	}
-
-	if (n < 10)
-	{
-		for (i = 0; i < n; i++)
-			div = div * 10;
-		for (i = 0; i < n; i++)
-		{
-			inter = _int / (div / 10);
-			arrayn[i] = inter;
-			_int = _int % (div / 10);
-			div = div / 10;
-			_putchar('0' + arrayn[i]);
-		}
-	}
-	else
-	{
-		for (i = 0; i < n; i++)
-			divlar = divlar * 10;
-		for (i = 0; i < n; i++)
-		{
-			inter = _int / (divlar / 10);
-			arrayn[i] = inter;
-			_int = _int % (divlar / 10);
-			divlar = divlar / 10;
-			if (i == n - 1 && true_false2 == 1)
-				arrayn[i] = arrayn[i] + 1;
-			_putchar('0' + arrayn[i]);
-		}
-	}
+	case_i_d(n, _int, true_false2);
 	return (n + ret);
 }
 /**
@@ -102,7 +69,47 @@ int laps(int _int)
 		return (1 + laps(_int / 10));
 }
 /**
- * laps - count digits of intger
+ * case_i_d - print digit of digit
  * @_int: integer to evaluate
+ * @laps_: number of digits
+ * @true_false2: evaluate condition
  * Return: returns laps of the integer
  */
+void case_i_d(int laps_, int _int, int true_false2)
+{
+	int i, inter, div = 1, *arrayn;
+
+	int long divlar = 1;
+
+	arrayn = malloc(sizeof(int) * laps_);
+	if (arrayn == NULL)
+		return;
+	if (laps_ < 10)
+	{
+		for (i = 0; i < laps_; i++)
+			div = div * 10;
+		for (i = 0; i < laps_; i++)
+		{
+			inter = _int / (div / 10);
+			arrayn[i] = inter;
+			_int = _int % (div / 10);
+			div = div / 10;
+			_putchar('0' + arrayn[i]);
+		}
+	}
+	else
+	{
+		for (i = 0; i < laps_; i++)
+			divlar = divlar * 10;
+		for (i = 0; i < laps_; i++)
+		{
+			inter = _int / (divlar / 10);
+			arrayn[i] = inter;
+			_int = _int % (divlar / 10);
+			divlar = divlar / 10;
+			if (i == laps_ - 1 && true_false2 == 1)
+				arrayn[i] = arrayn[i] + 1;
+			_putchar('0' + arrayn[i]);
+		}
+	}
+}

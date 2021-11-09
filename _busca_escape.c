@@ -33,6 +33,10 @@ int busca_escape(const char *format, va_list args)
 				cuenta += evaluate_intd(va_arg(args, int));
 				i++;
 				break;
+			case 'i':
+				cuenta += evaluate_intd(va_arg(args, int));
+				i++;
+				break;
 			default:
 				if (format[i + 1])
 					_putchar(format[i]);
