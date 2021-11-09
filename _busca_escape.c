@@ -8,8 +8,7 @@
  */
 int busca_escape(const char *format, va_list args)
 {
-	int lon, i, lonc, caracteres, cuenta = 0;
-	char *cadenas;
+	int lon, i, cuenta = 0;
 
 	lon = strlen(format) + 1;
 	for (i = 0; i < lon - 1; i++)
@@ -23,18 +22,15 @@ int busca_escape(const char *format, va_list args)
 				i++;
 				break;
 			case 's':
-				cadenas = va_arg(args, char *);
-				if (!cadenas)
-					cadenas = "(null)";
-				lonc = strlen(cadenas) + 1;
-				cuenta = cuenta + (lonc - 1);
-				write(1, cadenas, lonc - 1);
+				cuenta += evaluate_str(va_arg(args, char *));
 				i++;
 				break;
 			case 'c':
-				caracteres = va_arg(args, int);
-				_putchar(caracteres);
-				cuenta++;
+				cuenta += evaluate_char(va_arg(args, int));
+				i++;
+				break;
+			case 'd':
+				cuenta += evaluate_intd(va_arg(args, int));
 				i++;
 				break;
 			default:
