@@ -1,4 +1,4 @@
-# _printf <blockquote class="imgur-embed-pub" lang="en" data-id="a/QAVgYYA" ><a href="//imgur.com/a/QAVgYYA">printf</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script> 
+# _printf  
 
 Project description
 
