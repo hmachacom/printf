@@ -71,5 +71,5 @@ int laps(int _int)
 	if (_int < 10)
 		return (1);
 	else
-		return (1 + cantidad_vueltas(_int / 10));
+		return (1 + laps(_int / 10));
 }
