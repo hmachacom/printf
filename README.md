@@ -1,10 +1,10 @@
 # _printf  
-![enter image description here](https://i.imgur.com/CnW6aHr.png)
+![LOGO _PRINTF](https://i.imgur.com/CnW6aHr.png)
 Project description
 
 The next project is about developing a function that recreates the operation of the standard library printf, so that it prints strings with the requested formats.
 
-[Imgur](https://i.imgur.com/uOqhK8V.jpg)
+![Flowchart](https://i.imgur.com/uOqhK8V.jpg)
 ## Files
 
 | Filename | Description |
