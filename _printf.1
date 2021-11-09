@@ -1,0 +1,62 @@
+.\"Este es nuestro primer man!!!! 
+.TH _printf 1 2021-09-11 "Printf hecho por solicitud de Holberton 1.0" "Manual _printf"
+.SH NAME
+_printf \- format admitt and print data
+.SH SYNOPSIS
+.B printf
+\fI\,FORMAT \/\fR[\fI\,ARGUMENT\/\fR]...
+.br
+.B printf
+\fI\,OPTION\/\fR
+.SH DESCRIPTION
+FORMAT controls the output in C _printf.  sequences are:
+.TP
+\e\e
+backslash
+.TP
+\ec
+Character
+.TP
+\en
+new line
+.TP
+%%
+a single %
+.TP
+%s
+string
+.TP
+%i
+print integer
+.TP
+%d
+print integer, too
+.SH EXAMPLES
+.nf
+int len;
+
+    len = _printf("Let's try to printf a simple sentence.\n");
+    _printf("Length:[%d, %i]\n", len);
+    _printf("Negative:[%d]\n", -762534);
+	_printf("Character:[%c]\n", 'H');
+	_printf("String:[%s]\n", "I am a string !");
+	len = _printf("Percent:[%%]\n");
+	_printf("Len:[%d]\n", len);
+	_printf("Unknown:[%r]\n");
+.fi
+.PP
+.nf
+	Let's try to printf a simple sentence.
+	Length:[39]
+	Negative:[-762534]
+	Character:[H]
+	String:[I am a string !]
+	Percent:[%]
+	Len:[12]
+	Unknown:[%r]
+.fi
+.PP
+.SH AUTHORS
+.B created by Jhon Gonzalez, Reinaldo Castro and Hugo Machacon for Holberton.
+.SH "REPOSITORY GITHUB"
+_____https://github.com/hmachacom/printf_____
