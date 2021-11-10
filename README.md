@@ -4,7 +4,7 @@ Project description
 
 The next project is about developing a function that recreates the operation of the standard library printf, so that it prints strings with the requested formats.
 
-![Flowchart](https://i.imgur.com/uOqhK8V.jpg)
+![Flowchart](https://i.imgur.com/L7zBkV9.jpg)
 ## Files
 
 | Filename | Description |
