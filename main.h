@@ -18,7 +18,6 @@ typedef struct escape
 	char es;
 	int (*f)(va_list);
 } bu_es;
-
 int _printf(const char *format, ...);
 int eva_siono(const char *format);
 int busca_escape(const char *format, va_list args);
