@@ -125,6 +125,12 @@ int evaluate_o(va_list args)
 	arrayn = malloc(sizeof(int) * n + 1);
 	if (arrayn == NULL)
 		return (0);
+	if (oct == 0)
+	{
+		_putchar(48);
+		free(arrayn);
+		return (1);
+	}
 	while (oct > 0)
 	{
 		cos = oct / 8;
