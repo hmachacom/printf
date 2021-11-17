@@ -61,7 +61,7 @@ int (*select_format(char f))(va_list)
 		{'u', evaluate_u},
 		{'o', evaluate_o},
 		{'x', evaluate_x},
-		{'X', evaluate_intd},
+		{'X', evaluate_X},
 	};
 	int j = 0;
 
