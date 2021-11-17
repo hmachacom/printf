@@ -8,44 +8,65 @@
  */
 int busca_escape(const char *format, va_list args)
 {
-	int lon, i, cuenta = 0;
+	int lon, i, cuenta = 0, cuenta1;
+	char letter;
 
 	lon = strlen(format) + 1;
 	for (i = 0; i < lon - 1; i++)
 	{
 		if (format[i] == '%')
 		{
-			switch (format[i + 1])
+			cuenta1 = 0;
+			if (format[i + 1] != '%' && format[i + 1])
 			{
-			case '%':
+				letter = format[i + 1];
+				cuenta1 = select_format(letter)(args);
+				cuenta = cuenta + cuenta1;
+				if (cuenta1 == 0 && letter != 's' && letter != 'c' &&
+					letter != 'd' && letter != 'i' && letter != 'b')
+					_putchar(letter);
+				i++;
+			}
+			else if ((format[i + 1] != '%' && !format[i + 1]))
+			{
+				if (cuenta == 0)
+					return (-1);
+			}
+			else if (format[i + 1] == '%')
+			{
 				_putchar(format[i]);
 				i++;
-				break;
-			case 's':
-				cuenta += evaluate_str(va_arg(args, char *));
-				i++;
-				break;
-			case 'c':
-				cuenta += evaluate_char(va_arg(args, int));
-				i++;
-				break;
-			case 'd':
-				cuenta += evaluate_intd(va_arg(args, int));
-				i++;
-				break;
-			case 'i':
-				cuenta += evaluate_intd(va_arg(args, int));
-				i++;
-				break;
-			default:
-				if (format[i + 1])
-					_putchar(format[i]);
-				else
-					return (-1);
 			}
 		}
 		else
 			_putchar(format[i]);
 	}
 	return (cuenta);
+}
+/**
+ * select_format - search simbol
+ * @f: char recivide
+ * Return: returns the length of the arguments
+ */
+int (*select_format(char f))(va_list)
+{
+	bu_es esc[] = {
+		{'s', evaluate_str},
+		{'c', evaluate_char},
+		{'d', evaluate_intd},
+		{'i', evaluate_intd},
+		{'b', evaluate_b},
+	};
+	int j = 0;
+
+	while (j < 5)
+	{
+		if (esc[j].es == f)
+		{
+			return (esc[j].f);
+			j++;
+		}
+		j++;
+	}
+	return (evaluate_percent);
 }

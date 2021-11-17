@@ -2,15 +2,14 @@
 
 /**
  * evaluate_str - print format %s
- * @str: string to print
+ * @args: string to print
  * Return: returns the length of the arguments
  */
-int evaluate_str(char *str)
+int evaluate_str(va_list args)
 {
-	char *cadenas;
+	char *cadenas = va_arg(args, char *);
 	int lonc = 0, cuenta = 0;
 
-	cadenas = str;
 	if (!cadenas)
 		cadenas = "(null)";
 	lonc = strlen(cadenas) + 1;
@@ -20,22 +19,23 @@ int evaluate_str(char *str)
 }
 /**
  * evaluate_char - print format %c
- * @_char: char to print
+ * @args: char to print
  * Return: returns the length of the arguments
  */
-int evaluate_char(int _char)
+int evaluate_char(va_list args)
 {
-	_putchar(_char);
+	_putchar(va_arg(args, int));
 	return (1);
 }
 /**
  * evaluate_intd - print format %d
- * @_int: char to print
+ * @args: char to print
  * Return: returns the length of the arguments
  */
-int evaluate_intd(int _int)
+int evaluate_intd(va_list args)
 {
 	int n = 0, true_false = 0, true_false2 = 0, ret = 0;
+	int _int = va_arg(args, int);
 
 	if (_int < 0)
 	{
