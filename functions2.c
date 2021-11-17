@@ -51,3 +51,62 @@ int evaluate_b(va_list args)
 	free(arrayb);
 	return (cuenta);
 }
+/**
+ * evaluate_u - print format %u
+ * @args: char to print
+ * Return: returns the length of the arguments
+ */
+int evaluate_u(va_list args)
+{
+	int n = 0, true_false2 = 0, ret = 0;
+	unsigned int _int = va_arg(args, unsigned int);
+	int i, inter, div = 1, *arrayn;
+
+	int long divlar = 1;
+
+	n = laps_u(_int);
+	arrayn = malloc(sizeof(int) * n);
+	if (arrayn == NULL)
+		return (0);
+	if (n < 10)
+	{
+		for (i = 0; i < n; i++)
+			div = div * 10;
+		for (i = 0; i < n; i++)
+		{
+			inter = _int / (div / 10);
+			arrayn[i] = inter;
+			_int = _int % (div / 10);
+			div = div / 10;
+			_putchar('0' + arrayn[i]);
+		}
+	}
+	else
+	{
+		for (i = 0; i < n; i++)
+			divlar = divlar * 10;
+		for (i = 0; i < n; i++)
+		{
+			inter = _int / (divlar / 10);
+			arrayn[i] = inter;
+			_int = _int % (divlar / 10);
+			divlar = divlar / 10;
+			if (i == n - 1 && true_false2 == 1)
+				arrayn[i] = arrayn[i] + 1;
+			_putchar('0' + arrayn[i]);
+		}
+	}
+	return (n + ret);
+}
+/**
+ * laps_u - count digits of intger
+ * @_int: integer to evaluate
+ * Return: returns laps of the integer
+ */
+int laps_u(unsigned int _int)
+{
+	if (_int < 10)
+		return (1);
+	else
+		return (1 + laps(_int / 10));
+}

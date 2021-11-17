@@ -58,7 +58,7 @@ int (*select_format(char f))(va_list)
 		{'d', evaluate_intd},
 		{'i', evaluate_intd},
 		{'b', evaluate_b},
-		{'u', evaluate_intd},
+		{'u', evaluate_u},
 		{'o', evaluate_intd},
 		{'x', evaluate_intd},
 		{'X', evaluate_intd},

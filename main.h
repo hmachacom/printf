@@ -18,6 +18,7 @@ typedef struct escape
 	char es;
 	int (*f)(va_list);
 } bu_es;
+
 int _printf(const char *format, ...);
 int eva_siono(const char *format);
 int busca_escape(const char *format, va_list args);
@@ -31,5 +32,7 @@ void case_i_d(int laps_, int _int, int true_false2);
 int evaluate_percent(va_list __attribute__((unused))a);
 int (*select_format(char s))(va_list);
 int evaluate_b(va_list args);
+int evaluate_u(va_list args);
+int laps_u(unsigned _int);
 
 #endif /* MAIN_H */
