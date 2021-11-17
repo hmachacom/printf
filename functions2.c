@@ -110,3 +110,37 @@ int laps_u(unsigned int _int)
 	else
 		return (1 + laps(_int / 10));
 }
+/**
+ * evaluate_o - print format %o
+ * @args: char to print
+ * Return: returns the length of the arguments
+ */
+int evaluate_o(va_list args)
+{
+	unsigned int oct = va_arg(args, unsigned int);
+	unsigned int *arrayn, n;
+	int i = 0, j = 0, rest = 0, resd = 0, cos = 0;
+
+	n = laps_u(oct);
+	arrayn = malloc(sizeof(int) * n);
+	if (arrayn == NULL)
+		return (0);
+	while (oct > 0)
+	{
+		cos = oct / 8;
+		rest = cos * 8;
+		resd = oct - rest;
+		arrayn[i] = resd;
+		oct = cos;
+		i++;
+	}
+	i = i - 1;
+	while (i >= 0)
+	{
+		_putchar('0' + arrayn[i]);
+		i--;
+		j++;
+	}
+	free(arrayn);
+	return (j);
+}
