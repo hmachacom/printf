@@ -118,14 +118,14 @@ int laps_u(unsigned int _int)
 int evaluate_o(va_list args)
 {
 	unsigned int oct = va_arg(args, unsigned int);
-	unsigned int *arrayn, n;
-	int i = 0, j = 0, rest = 0, resd = 0, cos = 0;
+	unsigned int *arrayn, n, i = 0;
+	int j = 0, rest = 0, resd = 0, cos = 0, k = 0;
 
 	n = laps_u(oct);
-	arrayn = malloc(sizeof(int) * n);
+	arrayn = malloc(sizeof(int) * n + 1);
 	if (arrayn == NULL)
 		return (0);
-	while (oct > 0)
+	while (i < n + 1)
 	{
 		cos = oct / 8;
 		rest = cos * 8;
@@ -134,11 +134,11 @@ int evaluate_o(va_list args)
 		oct = cos;
 		i++;
 	}
-	i = i - 1;
-	while (i >= 0)
+	k = i - 1;
+	while (k >= 0)
 	{
-		_putchar('0' + arrayn[i]);
-		i--;
+		_putchar('0' + arrayn[k]);
+		k--;
 		j++;
 	}
 	free(arrayn);
