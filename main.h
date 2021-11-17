@@ -35,5 +35,6 @@ int evaluate_b(va_list args);
 int evaluate_u(va_list args);
 int laps_u(unsigned _int);
 int evaluate_o(va_list args);
+int evaluate_x(va_list args);
 
 #endif /* MAIN_H */
