@@ -49,7 +49,7 @@ int evaluate_x(va_list args)
 	return (j);
 }
 /**
- * evaluate_x - print format %x
+ * evaluate_X - print format %X
  * @args: char to print
  * Return: returns the length of the arguments
  */
