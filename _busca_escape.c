@@ -25,7 +25,7 @@ int busca_escape(const char *format, va_list args)
 				if (cuenta1 == 0 && letter != 's' && letter != 'c' &&
 					letter != 'd' && letter != 'i' && letter != 'b' &&
 					letter != 'u' && letter != 'o' && letter != 'x' &&
-					letter != 'X')
+					letter != 'X' && letter != 'S')
 					_putchar(letter);
 				i++;
 			}
@@ -62,10 +62,11 @@ int (*select_format(char f))(va_list)
 		{'o', evaluate_o},
 		{'x', evaluate_x},
 		{'X', evaluate_X},
+		{'S', evaluate_S},
 	};
 	int j = 0;
 
-	while (j < 9)
+	while (j < 10)
 	{
 		if (esc[j].es == f)
 		{

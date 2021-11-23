@@ -96,3 +96,47 @@ int evaluate_X(va_list args)
 	free(arrayn);
 	return (j);
 }
+/**
+ * evaluate_S - print format %S
+ * @args: char to print
+ * Return: returns the length of the arguments
+ */
+int evaluate_S(va_list args)
+{
+	char *cadenas = va_arg(args, char *);
+	int lonc = 0, cuenta = 0, i, rest = 0, l;
+	char letter;
+
+	lonc = strlen(cadenas);
+	cuenta = cuenta + lonc;
+	for (i = 0; cadenas[i] != '\0'; i++)
+	{
+		if (cadenas[i] < 32 || cadenas[i] >= 127)
+		{
+			_putchar('\\');
+			_putchar('x');
+			cuenta++;
+			_putchar('0');
+			cuenta++;
+			if (cadenas[i] >= 10)
+			{
+				rest = cadenas[i] - 10;
+				letter = 'A';
+				for (l = 0; l < rest; l++)
+					letter++;
+				_putchar(letter);
+				cuenta++;
+			}
+			else
+			{
+				_putchar('0' + cadenas[i]);
+				cuenta++;
+			}
+		}
+		else
+		{
+			_putchar(cadenas[i]);
+		}
+	}
+	return (cuenta);
+}
